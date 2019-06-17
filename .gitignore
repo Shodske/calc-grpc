@@ -10,3 +10,13 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Generated protocol buffers
+*.pb.go
+
+# IDE files and directories
+.idea/
+
+# Built binaries
+/build/package/calc_server
+/build/package/calc_client

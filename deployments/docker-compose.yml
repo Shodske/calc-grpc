@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  go-protoc:
+    build:
+      context: ..
+      dockerfile: build/package/Dockerfile
+      target: builder
+    image: go-protoc
+    volumes:
+      - ..:/opt/calc-grpc
+      - godata:/go
+      - gocache:/root/.cache
+    working_dir: /opt/calc-grpc
+
+  calc-server:
+    build:
+      context: ../build/package
+      target: server
+    image: shadmanx/calc-server
+    ports:
+      - ${DOCKER_PORT:-50051}:50052
+
+volumes:
+  godata:
+  gocache:
