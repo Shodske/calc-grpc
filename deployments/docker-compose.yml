@@ -19,7 +19,7 @@ services:
       target: server
     image: shadmanx/calc-server
     ports:
-      - ${DOCKER_PORT:-50051}:50052
+      - ${PORT:-50051}:50052
 
 volumes:
   godata:
