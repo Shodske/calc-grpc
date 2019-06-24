@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calc-grpc
+  namespace: default
+  labels:
+    app: calc-grpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calc-grpc
+  template:
+    metadata:
+      labels:
+        app: calc-grpc
+    spec:
+      containers:
+        - name: calc-grpc
+          image: docker.io/shadmanx/calc-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 50051
+              name: grpc

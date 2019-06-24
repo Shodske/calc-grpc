@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: calc-grpc-ingress
+  annotations:
+    nginx.org/grpc-services: calc-grpc
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              serviceName: calc-grpc
+              servicePort: grpc
+  tls:
+    - secretName: calc-grpc-secret

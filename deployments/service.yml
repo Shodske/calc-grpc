@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calc-grpc-service
+  namespace: default
+spec:
+  selector:
+    app: calc-grpc
+  ports:
+    - port: 50051
+      targetPort: 50051
+      name: grpc

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: calc-grpc-config
+  namespace: default
+data:
+  use-http2: "true"
