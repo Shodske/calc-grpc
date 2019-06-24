@@ -1,0 +1,44 @@
+syntax = 'proto3';
+
+package calculator;
+
+service Calculator {
+    rpc Add (Values) returns (Result) {
+    }
+
+    rpc Sum (Collection) returns (Result) {
+    }
+
+    rpc Evaluate (Comparison) returns (BooleanResult) {
+    }
+}
+
+message Values {
+    double x = 1;
+    double y = 2;
+}
+
+message Collection {
+    repeated double values = 1;
+}
+
+message Comparison {
+    Values values = 1;
+
+    enum Operator {
+        EQUAL = 0;
+        NOT_EQUAL = 1;
+        GREATER = 2;
+        LESS = 3;
+    }
+
+    Operator operator = 2;
+}
+
+message Result {
+    double value = 1;
+}
+
+message BooleanResult {
+    bool value = 1;
+}
