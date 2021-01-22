@@ -72,13 +72,13 @@ func Test_main(t *testing.T) {
 	}{
 		{
 			name:    "base-case",
-			args:    sumArgs{ctx: context.Background(), col: &calculator.Collection{[]float64{1.0, 2.0, 3.0}}},
+			args:    sumArgs{ctx: context.Background(), col: &calculator.Collection{Values: []float64{1.0, 2.0, 3.0}}},
 			want:    &calculator.Result{Value: 6.0},
 			wantErr: false,
 		},
 		{
 			name:    "empty-collection",
-			args:    sumArgs{ctx: context.Background(), col: &calculator.Collection{[]float64{}}},
+			args:    sumArgs{ctx: context.Background(), col: &calculator.Collection{Values: []float64{}}},
 			want:    &calculator.Result{Value: 0.0},
 			wantErr: false,
 		},
@@ -90,7 +90,7 @@ func Test_main(t *testing.T) {
 		},
 		{
 			name:    "large-collection-values",
-			args:    sumArgs{ctx: context.Background(), col: &calculator.Collection{[]float64{math.MaxFloat64, math.MaxFloat64, math.MaxFloat64}}},
+			args:    sumArgs{ctx: context.Background(), col: &calculator.Collection{Values: []float64{math.MaxFloat64, math.MaxFloat64, math.MaxFloat64}}},
 			want:    &calculator.Result{Value: math.Inf(1)},
 			wantErr: false,
 		},
@@ -127,8 +127,8 @@ func Test_main(t *testing.T) {
 		Operator: calculator.Comparison_LESS,
 	}
 
-	trueResult := &calculator.BooleanResult{true}
-	falseResult := &calculator.BooleanResult{false}
+	trueResult := &calculator.BooleanResult{Value: true}
+	falseResult := &calculator.BooleanResult{Value: false}
 
 	type evalArgs struct {
 		ctx context.Context

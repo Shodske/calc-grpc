@@ -22,6 +22,6 @@ build:
 push:
 	scripts/push.sh
 
-.PHONY: run
-run:
+.PHONY: start
+start:
 	${DOCKER} up

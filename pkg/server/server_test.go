@@ -120,8 +120,8 @@ func Test_server_Evaluate(t *testing.T) {
 		Operator: calculator.Comparison_LESS,
 	}
 
-	trueResult := &calculator.BooleanResult{true}
-	falseResult := &calculator.BooleanResult{false}
+	trueResult := &calculator.BooleanResult{Value: true}
+	falseResult := &calculator.BooleanResult{Value: false}
 
 	type args struct {
 		ctx context.Context

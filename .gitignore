@@ -20,3 +20,5 @@
 # Built binaries
 /build/package/calc_server
 /build/package/calc_client
+
+/vendor
