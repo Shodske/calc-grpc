@@ -1,4 +1,4 @@
-FROM golang:1.14 AS builder
+FROM golang:1.15 AS builder
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends golang-goprotobuf-dev \
